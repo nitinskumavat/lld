@@ -43,6 +43,13 @@ public class TicTacToe {
 
         }
 
+        for (int i = 0; i < players.size(); i++) {
+            int randomIndex = (int) (Math.random() * players.size());
+            Player temp = players.get(i);
+            players.set(i, players.get(randomIndex));
+            players.set(randomIndex, temp);
+        }
+
         Game game = gameController.createGame(dimension, players);
         while (gameController.getGameStatus(game).equals(GameStatus.IN_PROGRESS)) {
             System.out.println("Current board");
